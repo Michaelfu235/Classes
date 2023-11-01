@@ -1,0 +1,22 @@
+#include <iostream>
+#include "videogames.h"
+
+using namespace std;
+
+videogames(char* c, int x, char* p, int r):media(c,x){
+  publisher = new char[80];
+  strcpy(publisher,p);
+  rating = r;
+}
+
+~videogames(){
+  delete[] publisher;
+}
+
+char* getPublisher(){
+  return publisher;
+}
+
+int getRating(){
+  return rating;
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+#include "media.h"
+
+using namespace std;
+
+media(){
+  title = new char[80];
+}
+
+media(char* c, int x){
+  title = new char[80];
+  strcpy(title, c);
+  year = y;
+}
+
+~media(){
+  delete[title];
+}
+
+char* getTitle(){
+  return title;
+}
+
+int getyear(){
+  return year;
+}
