@@ -3,6 +3,8 @@
 #include <cstring>
 #include "videogames.h"
 #include "movie.h"
+#include "music.h"
+
 
 using namespace std;
 
@@ -32,9 +34,21 @@ int main(){
   cin.get();
   cin.get(dir,80);
   cin.get();
-  
+
     
   movie* test = new movie(c,x,dur,dir,r);
   listt.push_back(test);
-  listt[1]->printvg();  
+  listt[1]->printvg();
+
+  dur = 156;
+  char* artist = new char[80];
+  char* publisher = new char[80];
+  cin.get(artist, 80);
+  cin.get();
+  cin.get(publisher, 80);
+  cin.get();
+  
+  music* testtt = new music(c,x,artist,dur,publisher);
+  listt.push_back(testtt);
+  listt[2]->printvg();
 }

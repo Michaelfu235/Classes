@@ -31,6 +31,6 @@ void movie::printvg(){
   cout << "title: " << title << endl;
   cout << "director: " << director << endl;
   cout << "year: " << year << endl;
-  cout << "duration: " << duration << endl;
+  cout << "duration: " << duration <<" minutes" << endl;
   cout << "rating: " << rating << endl;
 }
