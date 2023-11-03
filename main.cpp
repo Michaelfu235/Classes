@@ -15,9 +15,14 @@ int main(){
   int x = 2020;
   char* p = new char[80];
   int r = 8;
+
   cin.get(c, 80);
+  cin.get();
   cin.get(p, 80);
+  cin.get();
   videogames* testing = new videogames(c,x,p,r);
   listt.push_back(testing);
-  cout << listt[0] << endl;
+
+  listt[0]->printvg();
+
 }

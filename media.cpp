@@ -24,3 +24,8 @@ char* media::getTitle(){
 int media::getyear(){
   return year;
 }
+
+void media::printvg(){
+    cout << "Title: " << title << endl;
+    cout << "Year: " << year << endl;
+}

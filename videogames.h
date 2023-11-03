@@ -9,13 +9,13 @@ using namespace std;
 class videogames: public media{
  public:
   videogames(char* c, int x, char* p, int r);
-  ~videgames();
+  ~videogames();
 
   char* publisher;
-  char* getPublisher();
+  virtual char* getPublisher();
   int rating;
-  int getRating();
-  void printvg();
+  virtual int getRating();
+  virtual void printvg();
 };
 
 #endif
