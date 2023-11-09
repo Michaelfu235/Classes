@@ -1,3 +1,10 @@
+/*
+ *Author: Michael Fu
+ *11/9/2023
+ *This is the header file for the movie child class
+ */
+
+
 #ifndef MOVIE_H
 #define MOVIE_H
 #include <iostream>
@@ -9,6 +16,8 @@ using namespace std;
 class movie: public media{
  public:
   movie(char* c, int x, int dur, char* dir, int r);
+
+  //destructor
   ~movie();
 
   int duration;

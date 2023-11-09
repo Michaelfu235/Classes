@@ -1,3 +1,10 @@
+/*
+ *Author: Michael Fu
+ *11/9/2023
+ *This is the header file for the music child class
+ */
+
+
 #ifndef MUSIC_H
 #define MUSIC_H
 #include <iostream>
@@ -9,6 +16,7 @@ using namespace std;
 class music: public media{
  public:
   music(char* c, int x, char* a, int dur, char* pub);
+  //destructor
   ~music();
 
   char* artist;
