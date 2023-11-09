@@ -31,7 +31,9 @@ int main(){
     } else if (strcmp(inpt,"d")==0){
       del(listt);
       
-    } else if (strcmp(inpt,"p")==0){
+    } else if (strcmp(inpt,"q")==0){
+      justKeepGoing=false;
+    }else if (strcmp(inpt,"p")==0){
       for(int i = 0;i<listt.size();i++){
 	listt[i]->printvg();
       }
@@ -43,45 +45,6 @@ int main(){
 
 
 
-  
-
-  char* c = new char[80];
-  int x = 2020;
-  char* p = new char[80];
-  int r = 8;
-
-  cin.get(c, 80);
-  cin.get();
-  cin.get(p, 80);
-  cin.get();
-  videogames* testing = new videogames(c,x,p,r);
-  listt.push_back(testing);
-
-  listt[0]->printvg();
-
-  int dur = 123;
-  char* dir = new char[80];
-  cin.get(c, 80);
-  cin.get();
-  cin.get(dir,80);
-  cin.get();
-
-    
-  movie* test = new movie(c,x,dur,dir,r);
-  listt.push_back(test);
-  listt[1]->printvg();
-
-  dur = 156;
-  char* artist = new char[80];
-  char* publisher = new char[80];
-  cin.get(artist, 80);
-  cin.get();
-  cin.get(publisher, 80);
-  cin.get();
-  
-  music* testtt = new music(c,x,artist,dur,publisher);
-  listt.push_back(testtt);
-  listt[2]->printvg();
 }
 
 
@@ -99,6 +62,7 @@ void add(vector<media*> &listt){
     cout << "title?" << endl;
     cin.get(c,80);
     cin.get();
+    
     cout << "year?" << endl;
     cin >> x;
     cin.get();
@@ -110,6 +74,7 @@ void add(vector<media*> &listt){
     cin.get();
 
     videogames* VG = new videogames(c,x,p,r);
+    
     listt.push_back(VG);
     return;
   } else if (strcmp(inpat,"mu") == 0){
@@ -245,18 +210,19 @@ void del(vector<media*> &listt){
   int temp = 0;
   
   cout << endl;
-  for(i = listt.begin();i<listt.size()){
-    if(strcmp(listt[i]->getTitle(),title)==0 || listt[i]->getyear()==y){
-      ptr=*i;
+  for(i = listt.begin();i<listt.end();){
+    ptr = *i;
+    if(strcmp(ptr->getTitle(),title)==0 || ptr->getyear()==y){
+      cout << endl;
       cout << "do you want to delete this(y/n):" << endl;
-      listt[i]->printvg();
+      ptr->printvg();
       cin >> confirm;
       cin.get();
       if(confirm=='y'){
-	cout << listt[i]->getTitle() << "has been deleted" << endl;
+	cout << ptr->getTitle() << " has been deleted" << endl;
 	listt.erase(i);
 	delete ptr;
-	
+		
       } else {
 	i++;
       }
