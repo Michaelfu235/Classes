@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <iterator>
 #include "videogames.h"
 #include "movie.h"
 #include "music.h"
@@ -10,6 +11,7 @@ using namespace std;
 
 void add(vector<media*> &listt);
 void search(vector<media*> &listt);
+void del(vector<media*> &listt);
 
 int main(){
   vector<media*> listt;
@@ -26,6 +28,9 @@ int main(){
       add(listt);
     } else if (strcmp(inpt,"s")==0){
       search(listt);
+    } else if (strcmp(inpt,"d")==0){
+      del(listt);
+      
     } else if (strcmp(inpt,"p")==0){
       for(int i = 0;i<listt.size();i++){
 	listt[i]->printvg();
@@ -203,4 +208,63 @@ void search(vector<media*> &listt){
       cout << endl;
     }
   }
+}
+
+
+
+
+void del(vector<media*> &listt){
+  if(listt.size() == 0){
+    cout << "no elements in database" << endl;
+    return;
+  }
+  int search = 0;
+  bool found = false;
+  char confirm;
+
+  media* ptr;
+  cout << "are you loking by title(t) or year(y)?" << endl;
+  char searcher;
+  cin >> searcher;
+  cin.get();
+  int y;
+  char* title = new char[80];
+  cout << "what is the title/year that you are looking for?" << endl;
+  if(searcher=='t'){
+    cin.get(title,80);
+    cin.get();
+  } else if(searcher == 'y'){
+    cin >> y;
+    cin.get();
+  } else {
+    cout << "you did not enter a t or a y" << endl;
+    return;
+
+  }
+  vector<media*>::iterator i;
+  int temp = 0;
+  
+  cout << endl;
+  for(i = listt.begin();i<listt.size()){
+    if(strcmp(listt[i]->getTitle(),title)==0 || listt[i]->getyear()==y){
+      ptr=*i;
+      cout << "do you want to delete this(y/n):" << endl;
+      listt[i]->printvg();
+      cin >> confirm;
+      cin.get();
+      if(confirm=='y'){
+	cout << listt[i]->getTitle() << "has been deleted" << endl;
+	listt.erase(i);
+	delete ptr;
+	
+      } else {
+	i++;
+      }
+    } else {
+      i++;
+    }
+  }
+  
+
+
 }

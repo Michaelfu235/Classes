@@ -14,7 +14,7 @@ media::media(char* c, int x){
 }
 
 media::~media(){
-  delete[]title;
+  delete[] title;
 }
 
 char* media::getTitle(){
